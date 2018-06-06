@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\DireccionType;
+use App\Lote;
+use App\Manzana;
+use App\Sector;
 use Illuminate\Http\Request;
 use App\Direccion;
+use Illuminate\Support\Facades\DB;
 
 class DireccionController extends Controller
 {
     public function index(){
         $direcciones = Direccion::all();
-        return view('direcciones.index',compact('direcciones'));
+        $tiposdirecciones = DB::table('direccion_types')->orderBy('name','asc')->get();
+        $lotes = DB::table('lotes')->orderBy('name','asc')->get();
+        $manzanas = DB::table('manzanas')->orderBy('name','asc')->get();
+        $sectores = DB::table('sectors')->orderBy('name','asc')->get();
+        return view('direcciones.index',compact('direcciones','tiposdirecciones','lotes','manzanas','sectores'));
     }
 
     public function show(Request $request){
@@ -50,7 +59,6 @@ class DireccionController extends Controller
     }
 
     public function update(Request $request){
-
         $validator = \Validator::make($request->all(), [
             'code' => 'required',
             'cvesae' => 'required',

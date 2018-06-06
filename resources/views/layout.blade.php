@@ -447,11 +447,11 @@
                     'cvesae': $('input[name=cvesae]').val(),
                     'calle': $('input[name=calle]').val(),
                     'email': $('input[name=email]').val(),
-                    'tipo': $('input[name=tipo]').val(),
+                    'tipo': $('#tipo').val(),
                     'horario': $('input[name=horario]').val(),
-                    'lote': $('input[name=lote]').val(),
-                    'sector': $('input[name=sector]').val(),
-                    'manzana': $('input[name=manzana]').val()
+                    'lote': $('#lote').val(),
+                    'sector': $('#sector').val(),
+                    'manzana': $('#manzana').val()
                 },
                 success: function(data) {
 
@@ -481,11 +481,11 @@
                     'cvesae': $('#cvesae').val(),
                     'calle': $('#calle').val(),
                     'email': $('#email').val(),
-                    'tipo': $('#tipo').val(),
+                    'tipo': $('#tipou').val(),
                     'horario': $('#horario').val(),
-                    'lote': $('#lote').val(),
-                    'sector': $('#sector').val(),
-                    'manzana': $('#manzana').val()
+                    'lote': $('#loteu').val(),
+                    'sector': $('#sectoru').val(),
+                    'manzana': $('#manzanau').val()
                 },
                 success: function(data) {
                     if(data.errors){

@@ -18,16 +18,9 @@
                             <h2>
                                 EXPORTABLE TABLE
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <div class="header-dropdown m-r--5 js-modal-buttons">
-                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalManzana">Nueva manzana</button>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="header-dropdown m-r--5 js-modal-buttons">
+                                <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalManzana">Nueva manzana</button>
+                            </div>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
