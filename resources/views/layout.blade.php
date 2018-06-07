@@ -760,6 +760,41 @@
                 }
             });
         });
+
+        $('#addUser').click(function(e){
+            e.preventDefault();
+            $('.errorUser').text('');
+            $.ajax({
+                type: 'post',
+                url: 'usuarios/store',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'fullname': $('input[name=fullname]').val(),
+                    'email1': $('input[name=email1]').val(),
+                    'email2': $('input[name=email2]').val(),
+                    'phone1': $('input[name=phone1]').val(),
+                    'phone2': $('input[name=phone2]').val(),
+                    'phone3': $('input[name=phone3]').val(),
+                    'officephone': $('input[name=officephone]').val(),
+                    'movil1': $('input[name=movil1]').val(),
+                    'movil2': $('input[name=movil2]').val(),
+                    'company': $('#company').val(),
+                    'funcion': $('#funcion').val()
+                },
+                success: function(data) {
+
+                    if(data.errors){
+                        jQuery.each(data.errors, function(key, value){
+                            $('.errorUser').append(value+'<br>');
+                        });
+                    }else{
+                        alert(data.success);
+                        location.reload(true);
+                    }
+
+                }
+            });
+        });
     });
 
 </script>

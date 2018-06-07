@@ -46,6 +46,7 @@ Route::get('sectores/show','SectorController@show')->name('sectores.edit');
 Route::get('tiposdirecciones','TipoDireccionController@index');
 
 Route::get('usuarios','UsuarioController@index');
+Route::post('usuarios/store','UsuarioController@store')->name('usuarios.store');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

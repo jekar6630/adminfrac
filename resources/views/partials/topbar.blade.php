@@ -66,15 +66,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('tiposdirecciones') }}">
-                        <i class="material-icons">widgets</i>
-                        <span>Tipos direcciones</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ url('usuarios') }}">
                         <i class="material-icons">widgets</i>
                         <span>Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('tiposdirecciones') }}">
+                        <i class="material-icons">widgets</i>
+                        <span>Tipos direcciones</span>
                     </a>
                 </li>
             </ul>
