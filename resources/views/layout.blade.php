@@ -308,6 +308,7 @@
         editlote();
         editmanzana();
         editsector();
+        editusuario();
 
         $('.js-exportable').DataTable({
             dom: 'Bfrtip',
@@ -430,6 +431,31 @@
                         $("#idSector").val(id);
                         $("#namesector").val(data.sector.name);
                         $("#descriptionsector").val(data.sector.description);
+                    }
+                });
+            });
+        }
+
+        function editusuario(){
+            $('.btn-edit-user').click(function(e){
+                e.preventDefault();
+                var id = $(this).val();
+
+                $.ajax({
+                    type:'get',
+                    url: 'usuarios/show',
+                    data:{id:id},
+                    success: function(data) {
+                        $("#idUsuario").val(id);
+                        $("#fullname").val(data.usuario.name);
+                        $("#email1").val(data.usuario.email);
+                        $("#email2").val(data.usuario.email2);
+                        $("#phone1").val(data.usuario.phone1);
+                        $("#phone2").val(data.usuario.phone2);
+                        $("#phone3").val(data.usuario.phone3);
+                        $("#officephone").val(data.usuario.officephone);
+                        $("#movil1").val(data.usuario.phone1);
+                        $("#movil2").val(data.usuario.phone2);
                     }
                 });
             });

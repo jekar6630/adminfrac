@@ -54,4 +54,9 @@ class UsuarioController extends Controller
 
         return response()->json(['success'=>'El usuario se registro correctamente']);
     }
+
+    public function show(Request $request){
+        $user = User::find($request->id);
+        return response()->json(['usuario'=>$user]);
+    }
 }
