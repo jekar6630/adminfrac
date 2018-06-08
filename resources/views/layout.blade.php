@@ -821,6 +821,40 @@
                 }
             });
         });
+
+        $('#updateUser').click(function(e){
+            e.preventDefault();
+            $('.errorUpdateUser').text('');
+            $.ajax({
+                type: 'post',
+                url: 'usuarios/update',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'idUsuario': $('#idUsuario').val(),
+                    'fullname': $('#fullname').val(),
+                    'email1': $('#email1').val(),
+                    'email2': $('#email2').val(),
+                    'phone1': $('#phone1').val(),
+                    'phone2': $('#phone2').val(),
+                    'phone3': $('#phone3').val(),
+                    'officephone': $('#officephone').val(),
+                    'movil1': $('#movil1').val(),
+                    'movil2': $('#movil2').val(),
+                    'companyu': $('#companyu').val(),
+                    'funcionu': $('#funcionu').val()
+                },
+                success: function(data) {
+                    if(data.errors){
+                        jQuery.each(data.errors, function(key, value){
+                            $('.errorUpdateUser').append(value+'<br>');
+                        });
+                    }else{
+                        alert(data.success);
+                        //location.reload(true);
+                    }
+                }
+            });
+        });
     });
 
 </script>

@@ -59,4 +59,41 @@ class UsuarioController extends Controller
         $user = User::find($request->id);
         return response()->json(['usuario'=>$user]);
     }
+
+    public function update(Request $request){
+
+        $validator = \Validator::make($request->all(), [
+            'fullname' => 'required',
+            'email1' => 'required',
+            'email2' => 'required',
+            'phone1' => 'required',
+            'phone2' => 'required',
+            'phone3' => 'required',
+            'officephone' => 'required',
+            'movil1' => 'required',
+            'movil2' => 'required',
+            'companyu' => 'required',
+            'funcionu' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+        $user = User::find($request->get('idUsuario'));
+        $user->name = $request->get('fullname');
+        $user->email = $request->get('email1');
+        $user->email2 = $request->get('email2');
+        $user->phone1 = $request->get('phone1');
+        $user->phone2 = $request->get('phone2');
+        $user->phone3 = $request->get('phone3');
+        $user->officephone = $request->get('officephone');
+        $user->movilphone1 = $request->get('movil1');
+        $user->movilphone2 = $request->get('movil2');
+        $user->idCompany = $request->get('companyu');
+        $user->idFunction = $request->get('funcionu');
+        $user->save();
+
+        return response()->json(['success'=>'El usuario se actualizo correctamente']);
+    }
 }
