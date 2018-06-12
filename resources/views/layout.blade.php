@@ -447,6 +447,7 @@
                     data:{id:id},
                     success: function(data) {
                         $("#idUsuario").val(id);
+                        $("#idUsuarioPhoto").val(id);
                         $("#fullname").val(data.usuario.name);
                         $("#email1").val(data.usuario.email);
                         $("#email2").val(data.usuario.email2);
@@ -456,6 +457,12 @@
                         $("#officephone").val(data.usuario.officephone);
                         $("#movil1").val(data.usuario.phone1);
                         $("#movil2").val(data.usuario.phone2);
+
+                        if(data.usuario.urlfoto == '-'){
+                            $("#titlephoto").html('Subir nueva foto');
+                        }else{
+                            $("#titlephoto").html('Actualizar foto foto');
+                        }
                     }
                 });
             });
@@ -850,10 +857,48 @@
                         });
                     }else{
                         alert(data.success);
-                        //location.reload(true);
+                        location.reload(true);
                     }
                 }
             });
+        });
+
+        $('#updateUserPhoto').click(function(e){
+            e.preventDefault();
+            $('.errorUpdatePhoto').text('');
+            $.ajax({
+                type: 'post',
+                url: 'usuarios/updatephoto',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'idUsuario': $('#idUsuario').val(),
+                    'fullname': $('#fullname').val(),
+                    'email1': $('#email1').val(),
+                    'email2': $('#email2').val(),
+                    'phone1': $('#phone1').val(),
+                    'phone2': $('#phone2').val(),
+                    'phone3': $('#phone3').val(),
+                    'officephone': $('#officephone').val(),
+                    'movil1': $('#movil1').val(),
+                    'movil2': $('#movil2').val(),
+                    'companyu': $('#companyu').val(),
+                    'funcionu': $('#funcionu').val()
+                },
+                success: function(data) {
+                    if(data.errors){
+                        jQuery.each(data.errors, function(key, value){
+                            $('.errorUpdateUser').append(value+'<br>');
+                        });
+                    }else{
+                        alert(data.success);
+                        location.reload(true);
+                    }
+                }
+            });
+        });
+
+        $('#enviarFoto').click(function(e){
+            $("#formphoto").submit();
         });
     });
 

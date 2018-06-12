@@ -17,7 +17,15 @@
                         <div class="header">
                             <h2>
                                 EXPORTABLE TABLE
-                            </h2>
+                            </h2><br>
+                            @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <strong>Error!</strong>
+                                @foreach($errors as $error)
+                                    {{ $error }}
+                                @endforeach
+                            </div>
+                            @endif
                             <div class="header-dropdown m-r--5 js-modal-buttons">
                                 <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalUsuario">Nuevo Usuario</button>
                             </div>
@@ -61,14 +69,27 @@
                                             <td>{{ $user->company->name }}</td>
                                             <td>{{ $user->function->name}}</td>
                                             <td>
-                                                <a class="thumbnail" href="javascript:void(0);">
-                                                    <img src="fotos/{{ $user->urlfoto }}" class="img-responsive">
+                                                <a class="thumbnail btn-edit-user-photo">
+                                                    @if( $user->urlfoto == '-')
+                                                        -
+                                                    @else
+                                                        <img src="fotos/{{ $user->urlfoto }}" class="img-responsive">
+                                                    @endif
                                                 </a>
                                             </td>
                                             <td>
                                                 <button class="btn btn-xs bg-lime waves-effect" type="button">
                                                     <li class="material-icons btn-edit-user" data-toggle="modal" data-target="#myModalEditUser" value="{{ $user->id }}">edit</li>
                                                 </button>
+                                                @if( $user->urlfoto == '-')
+                                                    <button class="btn btn-xs btn-info bg-lime waves-effect" type="button">
+                                                        <li class="material-icons btn-edit-user" data-toggle="modal" data-target="#myModalEditPhoto" value="{{ $user->id }}">search</li>
+                                                    </button>
+                                                @else
+                                                    <button class="btn btn-xs btn-warning bg-lime waves-effect" type="button">
+                                                        <li class="material-icons btn-edit-user" data-toggle="modal" data-target="#myModalEditPhoto" value="{{ $user->id }}">update</li>
+                                                    </button>
+                                                @endif
                                             </td>
                                         </tr>
 
@@ -326,6 +347,48 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" id="updateUser">Actualizar informacion</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Edit-->
+    <div id="myModalEditPhoto" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="titlephoto"></h4>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{{ route('usuarios.updatephoto') }}" enctype="multipart/form-data" name="formphoto" id="formphoto">
+                        <input type="hidden" id="idUsuarioPhoto" name="idUsuarioPhoto"/>
+
+                        {{ csrf_field() }}
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                            <label for="phone2">Seleccionar archivo</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="file" name="photo"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 errorUpdatePhoto">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info" id="enviarFoto">Subir foto</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

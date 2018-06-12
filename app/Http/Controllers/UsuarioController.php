@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class UsuarioController extends Controller
 {
@@ -95,5 +96,28 @@ class UsuarioController extends Controller
         $user->save();
 
         return response()->json(['success'=>'El usuario se actualizo correctamente']);
+    }
+
+    public function updatephoto(Request $request){
+
+        $validator = \Validator::make($request->all(), [
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with(['errors'=>$validator->errors()->all()]);
+        }
+
+        $image = $request->file('photo');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/fotos');
+        $image->move($destinationPath, $input['imagename']);
+
+        $user = User::find($request->get('idUsuarioPhoto'));
+        $user->urlfoto = $input['imagename'];
+        $user->save();
+
+        return back()->with('success','Image Upload successful');
+
     }
 }
