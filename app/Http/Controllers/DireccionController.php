@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\DB;
 class DireccionController extends Controller
 {
     public function index(){
-        $direcciones = Direccion::all();
+        $direcciones = DB::table('users')
+                        ->join('direccions','users.idDireccion','direccions.id')
+                        ->join('lotes','direccions.idLot','lotes.id')
+                        ->join('manzanas','direccions.idApple','manzanas.id')
+                        ->join('sectors','direccions.idSector','sectors.id')
+                        ->select('direccions.id','users.name as propietario','users.phone1','users.movilphone1','direccions.code','direccions.cvesae','direccions.street','lotes.name as lote','manzanas.name as manzana','sectors.name as sector')
+                        ->where('users.idFunction',23)
+                        ->where('direccions.idType',17)
+                        ->get();
         $tiposdirecciones = DB::table('direccion_types')->orderBy('name','asc')->get();
         $lotes = DB::table('lotes')->orderBy('name','asc')->get();
         $manzanas = DB::table('manzanas')->orderBy('name','asc')->get();

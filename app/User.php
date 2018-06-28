@@ -34,4 +34,8 @@ class User extends Authenticatable
     public function function(){
         return $this->hasOne(Funcion::class,'id','idFunction');
     }
+
+    public function direccion(){
+        return $this->hasOne(Direccion::class,'id','idDireccion');
+    }
 }

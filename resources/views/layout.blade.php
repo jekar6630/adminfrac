@@ -314,7 +314,8 @@
             dom: 'Bfrtip',
             responsive: true,
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                //'copy', 'csv', 'excel', 'pdf', 'print'
+                'print'
             ]
         });
 

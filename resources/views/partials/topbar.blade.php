@@ -32,7 +32,7 @@
                 <li>
                     <a href="{{ url('direcciones') }}">
                         <i class="material-icons">widgets</i>
-                        <span>Direcciones</span>
+                        <span>Directorio</span>
                     </a>
                 </li>
                 <li>

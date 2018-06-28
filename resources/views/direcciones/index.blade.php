@@ -536,29 +536,29 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Codigo</th>
                                         <th>Cvesae</th>
+                                        <th>Propietario</th>
                                         <th>Calle</th>
-                                        <th>Horario</th>
-                                        <th>Tipo</th>
                                         <th>Lote</th>
                                         <th>Manzana</th>
                                         <th>Sector</th>
+                                        <th>Telefono</th>
+                                        <th>Celular</th>
                                         <th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Codigo</th>
                                         <th>Cvesae</th>
+                                        <th>Propietario</th>
                                         <th>Calle</th>
-                                        <th>Horario</th>
-                                        <th>Tipo</th>
                                         <th>Lote</th>
                                         <th>Manzana</th>
                                         <th>Sector</th>
+                                        <th>Telefono</th>
+                                        <th>Celular</th>
                                         <th>Acciones</th>
                                     </tr>
                                     </tfoot>
@@ -567,15 +567,16 @@
                                         @foreach($direcciones as $direccion)
 
                                         <tr>
-                                            <td>{{ $direccion->id }}</td>
                                             <td>{{ $direccion->code }}</td>
                                             <td>{{ $direccion->cvesae }}</td>
+                                            <td>{{ $direccion->propietario }}</td>
                                             <td>{{ $direccion->street }}</td>
-                                            <td>{{ $direccion->schedule }}</td>
-                                            <td>{{ $direccion->directiontype->name }}</td>
-                                            <td>{{ $direccion->lote->name }}</td>
-                                            <td>{{ $direccion->manzana->name }}</td>
-                                            <td>{{ $direccion->sector->name }}</td>
+                                            <td>{{ $direccion->lote }}</td>
+                                            <td>{{ $direccion->manzana }}</td>
+                                            <td>{{ $direccion->sector }}</td>
+                                            <td>{{ $direccion->phone1 }}</td>
+                                            <td>{{ $direccion->movilphone1 }}</td>
+
                                             <td>
                                                 <button class="btn btn-xs bg-lime waves-effect" type="button">
                                                     <li class="material-icons btn-edit" data-toggle="modal" data-target="#myModalEdit" value="{{ $direccion->id }}">edit</li>
