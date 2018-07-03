@@ -17,6 +17,7 @@ Route::get('direcciones','DireccionController@index');
 Route::post('direcciones/store','DireccionController@store')->name('direcciones.store');
 Route::post('direcciones/update','DireccionController@update')->name('direcciones.update');
 Route::get('direcciones/show','DireccionController@show')->name('direcciones.edit');
+Route::get('codigorojo','DireccionController@codigorojo');
 
 Route::get('companias','CompaniaController@index');
 Route::post('companias/store','CompaniaController@store')->name('companias.store');
@@ -50,6 +51,7 @@ Route::post('usuarios/store','UsuarioController@store')->name('usuarios.store');
 Route::post('usuarios/update','UsuarioController@update')->name('usuarios.update');
 Route::post('usuarios/updatephoto','UsuarioController@updatephoto')->name('usuarios.updatephoto');
 Route::get('usuarios/show','UsuarioController@show')->name('usuarios.edit');
+Route::get('listanegra','UsuarioController@listanegra')->name('usuarios.listanegra');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -334,10 +334,11 @@
                         $("#cvesae").val(data.direccion.cvesae);
                         $("#calle").val(data.direccion.street);
                         $("#horario").val(data.direccion.schedule);
-                        $("#tipo").val(data.direccion.idType);
-                        $("#lote").val(data.direccion.idLot);
-                        $("#manzana").val(data.direccion.idApple);
-                        $("#sector").val(data.direccion.idSector);
+                        $("#tipou").val(data.direccion.tipo);
+                        $("#loteu").val(data.direccion.lote);
+                        $("#manzanau").val(data.direccion.manzana);
+                        $("#sectoru").val(data.direccion.sector);
+                        $("#propietario").val(data.direccion.propietario);
 
                     }
                 });

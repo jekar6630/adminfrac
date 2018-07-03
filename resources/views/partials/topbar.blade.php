@@ -36,6 +36,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('listanegra') }}">
+                        <i class="material-icons">widgets</i>
+                        <span>Lista negra</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('codigorojo') }}">
+                        <i class="material-icons">widgets</i>
+                        <span>Código rojo</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url('companias') }}">
                         <i class="material-icons">widgets</i>
                         <span>Companias</span>

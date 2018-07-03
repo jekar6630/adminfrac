@@ -16,6 +16,13 @@ class UsuarioController extends Controller
         return view('users.index',compact('usuarios','companias','funciones'));
     }
 
+    public function listanegra(){
+        $usuarios = User::where('idFunction',19)->get();
+        $companias = DB::table('companias')->orderBy('name','asc')->get();
+        $funciones = DB::table('funcions')->orderBy('name','asc')->get();
+        return view('users.index',compact('usuarios','companias','funciones'));
+    }
+
     public function store(Request $request){
 
         $validator = \Validator::make($request->all(), [
