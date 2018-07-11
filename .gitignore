@@ -12,3 +12,4 @@ yarn-error.log
 .env
 teamviewer_i386.deb
 teamviewer_i386.deb.1
+/storage
