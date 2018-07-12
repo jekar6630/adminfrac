@@ -18,6 +18,7 @@ Route::post('direcciones/store','DireccionController@store')->name('direcciones.
 Route::post('direcciones/update','DireccionController@update')->name('direcciones.update');
 Route::get('direcciones/show','DireccionController@show')->name('direcciones.edit');
 Route::get('codigorojo','DireccionController@codigorojo');
+Route::get('obras','DireccionController@obras');
 
 Route::get('companias','CompaniaController@index');
 Route::post('companias/store','CompaniaController@store')->name('companias.store');

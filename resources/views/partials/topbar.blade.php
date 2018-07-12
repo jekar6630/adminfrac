@@ -89,6 +89,12 @@
                         <span>Tipos direcciones</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('obras') }}">
+                        <i class="material-icons">widgets</i>
+                        <span>Obras</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->
