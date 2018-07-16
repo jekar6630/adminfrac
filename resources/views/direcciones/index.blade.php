@@ -721,7 +721,7 @@
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="{{ route('direcciones.update') }}">
-                        <input type="hidden" id="idDireccion" name="idDireccion"/>
+                        <input type="text" id="idDireccion" name="idDireccion"/>
                         {{ csrf_field() }}
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -757,7 +757,12 @@
                             <label for="tipo">Tipo</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="tipou" id="tipou" class="form-control" placeholder="Ingresa el tipo">
+                                    <select class="form-control show-tick" name="tipou" id="tipou">
+                                        <option value="">-- Please select --</option>
+                                        @foreach($tiposdirecciones as $tipo)
+                                            <option value="{{ $tipo->id }}">{{ $tipo->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -768,21 +773,36 @@
                             <label for="lote">Lote</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="loteu" id="loteu" class="form-control" placeholder="Ingresa el lote">
+                                    <select class="form-control show-tick" name="loteu" id="loteu">
+                                        <option value="">-- Please select --</option>
+                                        @foreach($lotes as $lote)
+                                            <option value="{{ $lote->id }}">{{ $lote->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                             <label for="manzana">Manzana</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="manzanau" id="manzanau" class="form-control" placeholder="Ingresa la manzana">
+                                    <select class="form-control show-tick" name="manzanau" id="manzanau">
+                                        <option value="">-- Please select --</option>
+                                        @foreach($manzanas as $manzana)
+                                            <option value="{{ $manzana->id }}">{{ $manzana->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                             <label for="sector">Sector</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="sectoru" id="sectoru" class="form-control" placeholder="Ingresa el sector">
+                                    <select class="form-control show-tick" name="sectoru" id="sectoru">
+                                        <option value="">-- Please select --</option>
+                                        @foreach($sectores as $sector)
+                                            <option value="{{ $sector->id }}">{{ $sector->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -801,6 +821,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-info" id="updateDir">Guardar</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
