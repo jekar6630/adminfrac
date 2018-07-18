@@ -35,24 +35,18 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        <th>Codigo</th>
+                                        <th>Cvesae</th>
                                         <th>Nombre</th>
-                                        <th>Email</th>
-                                        <th>Telefono1</th>
-                                        <th>Compania</th>
-                                        <th>Funcion</th>
                                         <th>Foto</th>
                                         <th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
-                                        <th>Id</th>
+                                        <th>Codigo</th>
+                                        <th>Cvesae</th>
                                         <th>Nombre</th>
-                                        <th>Email</th>
-                                        <th>Telefono1</th>
-                                        <th>Compania</th>
-                                        <th>Funcion</th>
                                         <th>Foto</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -62,12 +56,9 @@
                                     @foreach($usuarios as $user)
 
                                         <tr>
-                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->code }}</td>
+                                            <td>{{ $user->cvesae }}</td>
                                             <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->phone1 }}</td>
-                                            <td>{{ $user->company->name }}</td>
-                                            <td>{{ $user->function->name}}</td>
                                             <td>
                                                 <a class="thumbnail btn-edit-user-photo">
                                                     @if( $user->urlfoto == '-')

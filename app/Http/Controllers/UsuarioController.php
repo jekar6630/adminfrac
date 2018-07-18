@@ -17,7 +17,14 @@ class UsuarioController extends Controller
     }
 
     public function listanegra(){
-        $usuarios = User::where('idFunction',19)->get();
+        $usuarios = DB::table('users')
+            ->join('direccions','users.idDireccion','direccions.id')
+            ->join('lotes','direccions.idLot','lotes.id')
+            ->join('manzanas','direccions.idApple','manzanas.id')
+            ->join('sectors','direccions.idSector','sectors.id')
+            ->select('direccions.*','users.*')
+            ->where('users.idFunction',19)
+            ->get();
         $companias = DB::table('companias')->orderBy('name','asc')->get();
         $funciones = DB::table('funcions')->orderBy('name','asc')->get();
         return view('users.index',compact('usuarios','companias','funciones'));
