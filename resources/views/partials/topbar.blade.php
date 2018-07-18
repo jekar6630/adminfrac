@@ -50,7 +50,7 @@
                 <li>
                     <a href="{{ url('companias') }}">
                         <i class="material-icons">widgets</i>
-                        <span>Companias</span>
+                        <span>Constructuras y proveedores</span>
                     </a>
                 </li>
                 <li>
