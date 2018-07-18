@@ -721,7 +721,7 @@
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="{{ route('direcciones.update') }}">
-                        <input type="text" id="idDireccion" name="idDireccion"/>
+                        <input type="hidden" id="idDireccion" name="idDireccion"/>
                         {{ csrf_field() }}
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
