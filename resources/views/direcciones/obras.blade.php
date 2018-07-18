@@ -543,8 +543,6 @@
                                         <th>Lote</th>
                                         <th>Manzana</th>
                                         <th>Sector</th>
-                                        <th>Telefono</th>
-                                        <th>Celular</th>
                                         <th>Acciones</th>
                                     </tr>
                                     </thead>
@@ -557,8 +555,6 @@
                                         <th>Lote</th>
                                         <th>Manzana</th>
                                         <th>Sector</th>
-                                        <th>Telefono</th>
-                                        <th>Celular</th>
                                         <th>Acciones</th>
                                     </tr>
                                     </tfoot>
@@ -574,8 +570,6 @@
                                             <td>{{ $direccion->lote }}</td>
                                             <td>{{ $direccion->manzana }}</td>
                                             <td>{{ $direccion->sector }}</td>
-                                            <td>{{ $direccion->phone1 }}</td>
-                                            <td>{{ $direccion->movilphone1 }}</td>
 
                                             <td>
                                                 <button class="btn btn-xs bg-lime waves-effect" type="button">
