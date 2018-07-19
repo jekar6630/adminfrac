@@ -9,6 +9,8 @@ use App\Sector;
 use Illuminate\Http\Request;
 use App\Direccion;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Mail;
 
 class DireccionController extends Controller
 {
@@ -133,6 +135,9 @@ class DireccionController extends Controller
         $direccion->idApple = $request->get('manzana');
         $direccion->idSector = $request->get('sector');
         $direccion->save();
+
+        $mailer = new MailController();
+        $mailer->sendMailCodigoRojo();
 
         return response()->json(['success'=>'La direccion se actualizo correctamente']);
     }
