@@ -41,6 +41,7 @@ Route::post('manzanas/update','ManzanaController@update')->name('manzanas.update
 Route::get('manzanas/show','ManzanaController@show')->name('manzanas.edit');
 
 Route::get('sectores','SectorController@index');
+Route::get('sector','SectorController@sector');
 Route::post('sectores/store','SectorController@store')->name('sectores.store');
 Route::post('sectores/update','SectorController@update')->name('sectores.update');
 Route::get('sectores/show','SectorController@show')->name('sectores.edit');
